@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cálculo de Prestaciones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-light">
+
+<header class="py-4 bg-dark text-white text-center shadow-sm">
+    <div class="container">
+        <h1 class="h3 mb-0">Sistema de Cálculo de Prestaciones Laborales</h1>
+    </div>
+</header>
+
+<div class="container my-4" style="max-width: 900px;">
+
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-header bg-primary text-white font-weight-bold">
+            📋 Datos Generales
+        </div>
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Nombre del Trabajador</label>
+                    <input type="text" id="trabajador" class="form-control" placeholder="Ej. Juan Pérez">
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Empresa</label>
+                    <input type="text" id="empresa" class="form-control" placeholder="Ej. Corporación X">
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Fecha Ingreso</label>
+                    <input type="date" id="fechaIngreso" class="form-control">
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Fecha Salida</label>
+                    <input type="date" id="fechaSalida" class="form-control">
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Motivo de Salida</label>
+                    <select id="motivoSalida" class="form-select" onchange="alternarCamposPreaviso()">
+                        <option value="despido">Despido Injustificado</option>
+                        <option value="renuncia">Renuncia Voluntaria</option>
+                    </select>
+                </div>
+
+                <div class="col-md-12">
+                    <label class="form-label fw-semibold">Salario Mensual Ordinario</label>
+                    <div class="input-group">
+                        <span class="input-group-text">L</span>
+                        <input type="number" id="salario" class="form-control" min="0" placeholder="0.00">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-header bg-success text-white font-weight-bold">
+            💰 Ingresos Variables Promedio (Últimos 6 meses)
+        </div>
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Comisiones</label>
+                    <div class="input-group">
+                        <span class="input-group-text">L</span>
+                        <input type="number" id="comisiones" class="form-control" value="0" min="0">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Horas Extras</label>
+                    <div class="input-group">
+                        <span class="input-group-text">L</span>
+                        <input type="number" id="horasExtras" class="form-control" value="0" min="0">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Bonificaciones</label>
+                    <div class="input-group">
+                        <span class="input-group-text">L</span>
+                        <input type="number" id="bonificaciones" class="form-control" value="0" min="0">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center my-4">
+        <button class="btn btn-primary btn-lg px-5 shadow" onclick="calcular()">
+            Calcular Prestaciones
+        </button>
+    </div>
+
+    <div id="resultado" class="mt-4"></div>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
